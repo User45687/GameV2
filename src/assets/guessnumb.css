@@ -1,0 +1,182 @@
+/* Global Styles */
+body {
+  font-family: 'Press Start 2P', sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+ }
+ 
+ .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+ }
+ 
+ /* Header */
+ .header {
+  text-align: center;
+  margin-bottom: 20px;
+ }
+ 
+ .title {
+  font-size: 36px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+ }
+ 
+ .explanation {
+  font-size: 16px;
+  line-height: 1.4;
+ }
+ 
+ .inputex {
+  background-color: #000;
+  color: #00ff00;
+  border-radius: 5px;
+  padding: 5px;
+  width: 40px;
+  margin: 0 5px;
+  text-align: center;
+  font-family: 'Press Start 2P', sans-serif;
+  transition: border-color 0.2s;
+ }
+ 
+ .inputex:hover {
+  border-color: white;
+ }
+ 
+ /* Start Button */
+ .start-btn {
+  font-family: 'Press Start 2P', sans-serif;
+  background-color: #ff0000;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s, opacity 0.5s;
+  animation: blink 0.5s infinite alternate-reverse;
+ }
+ 
+ @keyframes blink {
+
+  from{color: #000;}
+  to{color: white;}
+ }
+ 
+ .start-btn:hover {
+  background-color: #ffff00;
+ }
+ 
+ .start-btn:disabled {
+  animation: none;
+ }
+ 
+ /* Body */
+ .body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .answer-container {
+  margin-bottom: 20px;
+  display: flex;
+ }
+ 
+ .input-default {
+  width: 300px;
+  text-align: center;
+  font-family: 'Press Start 2P', sans-serif;
+  transition: background-color 0.2s;
+ }
+ 
+ .submit-btn {
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.2s;
+  animation: slide_icon 0.5s infinite alternate-reverse;
+ }
+
+ @keyframes slide_icon {
+  from{transform: translateX(0px);}
+  to{transform: translateX(20px);}
+ }
+
+ .submit_btn_icon {
+  width: 40px;
+  height: 35px;
+ }
+
+ .submit_btn_icon:hover {
+  content: url(../icons/jouer.png);
+ }
+
+ .submit-btn:disabled {
+  animation: none;
+ }
+ 
+ /* Historique des réponses */
+ .history {
+  text-align: center;
+ }
+ 
+ .titleh {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+ }
+
+ .history-container {
+  display: flex;
+  flex-direction: column-reverse;
+ }
+ 
+ .input-history {
+  border: 2px solid #00ff00;
+  text-align: center;
+  font-family: 'Press Start 2P', sans-serif;
+  margin: 2px 2px 2px;
+  width: 30px;
+  padding: 3px;
+  background-color: #000;
+  color: white;
+ }
+
+ .input-history:focus {
+  outline: none;
+ }
+ 
+ .count-history {
+  color: #ff0000;
+  border: none;
+  width: 50px;
+ }
+ 
+ .answer-history {
+  flex: 1;
+  width: auto;
+  border: none;
+ }
+ 
+ .help-history {
+  width: 40px;
+  height: 40px;
+  border: none    ;
+ }
+ 
+ 
+ input[type="number"]::-webkit-inner-spin-button,
+ input[type="number"]::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   appearance: none;
+   margin: 0;
+ }
+ 
