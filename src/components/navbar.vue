@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
  <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-   <RouterLink to="Home" class="navbar-brand">BORING.IO</RouterLink>
+   <RouterLink to="/" class="navbar-brand">BORING.IO</RouterLink>
    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

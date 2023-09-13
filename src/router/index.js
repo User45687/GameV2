@@ -24,16 +24,15 @@ const router = createRouter({
       component: gambling
     },
     {
-      path: '/Chess',
-      name: '/chess',
+      path: '/chess', 
+      name: 'Chess', 
       component: chess
     },
     {
-      path: '/Home',
-      name: '/home',
+      path: '/', 
+      name: 'Home', 
       component: home
     }
-
   ]
 })
 
