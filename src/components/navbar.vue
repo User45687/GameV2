@@ -16,6 +16,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink to="Memorio" class="nav-link">Memorio</RouterLink>
       <RouterLink to="Gambling" class="nav-link">Gambling</RouterLink>
       <RouterLink to="Chess" class="nav-link">Chess</RouterLink>
+      <RouterLink to="Morpio" class="nav-link">Morpio</RouterLink>
     </div>
    </div>
   </div>

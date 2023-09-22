@@ -4,6 +4,7 @@ import memorio from "../components/memorio.vue"
 import gambling from "../components/gambling.vue"
 import chess from "../components/chess.vue"
 import home from "../components/home.vue"
+import morpio from "../components/morpio.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,7 +25,7 @@ const router = createRouter({
       component: gambling
     },
     {
-      path: '/chess', 
+      path: '/Chess', 
       name: 'Chess', 
       component: chess
     },
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/', 
       name: 'Home', 
       component: home
+    },
+    {
+      path: '/Morpio',
+      name: 'Morpio',
+      component: morpio
     }
   ]
 })
