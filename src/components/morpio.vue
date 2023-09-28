@@ -13,7 +13,7 @@
   <div class="modal_c" v-if="isGameMode">
     <div class="bg_m"></div>
     <div class="choice_container">
-      <button class="btn_mode" @click="ChangeMode">1 Player</button>  
+      <button class="btn_mode" @click="IA">1 Player</button>  
       <button class="btn_mode" @click="ChangeMode">2 Players</button>
     </div>
   </div>
@@ -186,6 +186,25 @@ function resetGame2() {
     gameEnded = false
     count = 0
 }
+
+function IA() {
+  ChangeMode();
+  while(true) {
+    const corners = [0,2,8,6]
+
+    const _turn1 = Math.floor(Math.random() * corners.length);
+    const turn1 = corners[_turn1];
+    console.log(turn1)
+    P2.value.push(turn1)
+
+  
+
+
+
+   break;
+  }
+}
+
 </script>
 
 

@@ -32,7 +32,7 @@
   </div>
 
   <!-- Body -->
-  <div class="body" @keyup.enter="TakeAnswer">
+  <div class="body_container" @keyup.enter="TakeAnswer">
    <div class="answer-container">
 
     <!-- Input de la réponse donnée -->
