@@ -13,7 +13,7 @@
   <div class="modal_c" v-if="isGameMode">
     <div class="bg_m"></div>
     <div class="choice_container">
-      <button class="btn_mode" @click="IA">1 Player</button>  
+      <button class="btn_mode" @click="IA">1 Player</button>
       <button class="btn_mode" @click="ChangeMode">2 Players</button>
     </div>
   </div>
@@ -47,23 +47,19 @@
         </div>
       </div>
 
-        <div class="turn_container">
-          <div class="turn">
-            {{ player_turn }} to play
-          </div>
+      <div class="turn_container">
+        <div class="turn">
+          {{ player_turn }} to play
         </div>
+      </div>
 
-        <button class="change_player" @click="ChangeMode">GameMode</button>
+      <button class="change_player" @click="ChangeMode">GameMode</button>
     </div>
   </div>
-
-
-
-
-
 </template>
 
 <script setup>
+import { V_MODEL_CHECKBOX } from '@vue/compiler-dom';
 import { ref } from 'vue';
 
 const isExplainAsk = ref(false)
@@ -79,7 +75,7 @@ function Explaination() {
 
 const isGameMode = ref(true)
 function ChangeMode() {
-  if(isGameMode.value) {
+  if (isGameMode.value) {
     isGameMode.value = false
   } else {
     isGameMode.value = true
@@ -179,29 +175,51 @@ function resetGame() {
 
 function resetGame2() {
   P1.value.splice(0, P1.value.length)
-    P2.value.splice(0, P2.value.length)
-    history.value.splice(0, history.value.length)
-    wincell.value.splice(0, wincell.value.length)
-    player_turn.value = "Player 1"
-    gameEnded = false
-    count = 0
+  P2.value.splice(0, P2.value.length)
+  history.value.splice(0, history.value.length)
+  wincell.value.splice(0, wincell.value.length)
+  player_turn.value = "Player 1"
+  gameEnded = false
+  count = 0
 }
 
-function IA() {
-  ChangeMode();
-  while(true) {
-    const corners = [0,2,8,6]
+const turn = ref(false)
 
-    const _turn1 = Math.floor(Math.random() * corners.length);
-    const turn1 = corners[_turn1];
-    console.log(turn1)
-    P2.value.push(turn1)
+function getEmptyCells() {
+  const emptyCells = [];
+  for (let i = 0; i < board.length; i++) {
+    if (board[i] === "") {
+      emptyCells.push(i);
+    }
+  }
+  return emptyCells;
+}
 
-  
+function makeAIMove() {
+  const emptyCells = getEmptyCells();
 
+  if (emptyCells.length > 0) {
+    // Choisissez une case vide au hasard
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const selectedCell = emptyCells[randomIndex];
+    board[selectedCell] = "O"; // Utilisez le symbole de l'IA (par exemple, "O")
 
+    // Mettez à jour les données et vérifiez si l'IA a gagné ou s'il y a un match nul
+    checkWinCondition(player_turn.value, selectedCell);
+    // Passez le tour au joueur suivant (Player 1)
+    player_turn.value = "Player 1";
+  }
+}
 
-   break;
+function PlayerTurn() {
+  if (turn.value) {
+    turn.value = false;
+    // C'est le tour de l'IA (Player 2), appelez la fonction pour faire jouer l'IA
+    if (player_turn.value === "Player 2") {
+      makeAIMove();
+    }
+  } else {
+    turn.value = true;
   }
 }
 
