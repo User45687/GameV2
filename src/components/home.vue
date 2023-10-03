@@ -5,6 +5,7 @@ const cards = [
   { name: "GuessNumb", backgroundImg: "../src/icons/screen_GN.png", link: "GuessNumb" },
   { name: "Memorio", backgroundImg: "../src/icons/screen_memo.png", link: "Memorio" },
   { name: "Morpio", backgroundImg: "../src/icons/screen_morpio.png", link: "Morpio" },
+  { name: "Slotio", backgroundImg: "../src/icons/screen_slotio.png", link: "Slotio" },
 
 ];
 
