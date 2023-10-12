@@ -1,0 +1,166 @@
+.head {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+
+.content_container {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ gap: 30px;
+}
+
+
+.rules_container {}
+
+.game_container {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ text-align: center;
+ gap: 30px;
+}
+
+.slot_container {
+ display: flex;
+ flex-direction: row;
+ gap: 30px;
+ justify-content: center;
+ align-items: center;
+}
+
+.slot {
+ display: flex;
+ flex-direction: row;
+ gap: 10px;
+}
+
+.input {
+ outline: none;
+ width: 180px;
+ height: 180px;
+ background-size: 170px 170px;
+ background-position: center center;
+ background-repeat: no-repeat;
+ border: solid 5px blueviolet;
+ transition: all 0.5s linear;
+}
+
+.input_win {
+ transform: scale(1) translate(10px, -10px);
+ box-shadow: -10px 10px 20px #00ff00;
+ border: none;
+}
+
+.start_btn {
+ outline: none;
+ border: solid 3px #ffff00;
+ width: 90px;
+ height: 50px;
+ font-size: 10px;
+ animation: blink 0.5s infinite alternate-reverse;
+ background-color: #000;
+}
+
+.start_btn:hover {
+ background-color: #ffff00;
+}
+.start_btn:active {
+ background-color: #00ff00;
+}
+
+@keyframes blink {
+ 
+ from{color: #000; transform: translateY(5px);}
+ to{color: white; transform: translateY(-5px);}
+}
+
+
+.bet_container {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-around;
+}
+
+.bet {
+ display: flex;
+ gap: 10px;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+}
+
+.bet_input {
+ max-width: 100px;
+ border: solid 3px #00ff00;
+ background-color: transparent;
+ color: #00ff00;
+ text-align: center;
+}
+
+.bet_btn_container {
+ display: flex;
+ flex-direction: row;
+ gap: 5px;
+}
+
+.bet_btn {
+ outline: none;
+ border: solid #00ff00;
+ background-color: transparent;
+ color: #00ff00;
+}
+
+.bet_btn:hover {
+ background-color: #00ff00;
+ color: #000;
+}
+
+.combinations {
+ display: flex;
+ flex-direction: column;
+ gap: 5px;
+ max-height: 300px;
+ width: 250px;
+ overflow-y: auto;
+}
+
+.combinations::-webkit-scrollbar {
+ width: 6px;
+ /* Largeur de la barre de défilement */
+}
+
+.combinations::-webkit-scrollbar-track {
+ background-color: black;
+ /* Couleur de l'arrière-plan de la barre de défilement */
+}
+
+.combinations::-webkit-scrollbar-thumb {
+ background-color: #00ff00;
+ /* Couleur de la poignée de la barre de défilement */
+}
+
+/* Personnalisation de la barre de défilement horizontale (si nécessaire) */
+.combinations::-webkit-scrollbar-horizontal {
+ height: 12px;
+ /* Hauteur de la barre de défilement horizontale */
+}
+
+
+
+.row_comb {
+ background-color: white;
+ color: black;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ padding: 0 10px 0 0;
+ align-items: center;
+}
+
+.icon_table {
+ width: 40px;
+}

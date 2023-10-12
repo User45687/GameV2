@@ -1,0 +1,198 @@
+.game_container {
+ width: 450px;
+ height: 450px;
+ border-radius: 50%;
+ background-color: rgb(0, 0, 0);
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-content: center;
+ padding: 10px;
+}
+
+.winLevel {
+ color: greenyellow;
+ transform: scale(1.2);
+}
+
+.looseLevel {
+ color: red;
+ transform: scale(1.2);
+}
+
+.button {
+ width: calc(50% - 10px);
+ height: calc(50% - 10px);
+ cursor: pointer;
+ border: 3px solid black;
+}
+
+.red {
+ background-color: #990000;
+ border-top-left-radius: 100%;
+}
+
+.red:active {
+ background-color: #ff3333;
+}
+
+.green {
+ background-color: #006600;
+ border-top-right-radius: 100%;
+}
+
+.green:active {
+ background-color: #66ff66;
+}
+
+.blue {
+ background-color: #000099;
+ border-bottom-left-radius: 100%;
+}
+
+.blue:active {
+ background-color: #3366ff;
+}
+
+.yellow {
+ background-color: #b37a08;
+ border-bottom-right-radius: 100%;
+}
+
+.yellow:active {
+ background-color: #ffcc33;
+}
+
+.isRed {
+ background-color: #ff3333;
+}
+
+.isGreen {
+ background-color: #66ff66;
+}
+
+.isBlue {
+ background-color: #3366ff;
+}
+
+.isYellow {
+ background-color: #ffcc33;
+}
+
+.rond {
+ border: solid 1px black;
+ background-color: black;
+ border-radius: 50%;
+ position: absolute;
+ width: 300px;
+ height: 300px;
+ top: 30.5%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+}
+
+.title {
+ font-size: 30px;
+ transition: all 0.2s linear;
+}
+
+.h6 {
+ font-size: 15px;
+ animation: blink 0.5s infinite linear alternate-reverse;
+ padding: 5px;
+ cursor: pointer;
+}
+
+.btn_disabled {
+ pointer-events: none;
+ cursor:not-allowed;
+ animation: none;
+ opacity: 0.7;
+}
+
+@keyframes blink {
+ from {
+  background-color: white;
+  color: black;
+ }
+
+ to {
+  background-color: black;
+  color: white;
+ }
+}
+
+.history_container {
+ position: absolute;
+ top: 10%;
+ right: 5%;
+ border: solid 2px #66ff66;
+ max-height: 90%;
+ min-height: 90%;
+ min-width: 20%;
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ gap: 20px;
+ overflow-y: auto;
+}
+
+.history_container::-webkit-scrollbar {
+ width: 6px;
+ /* Largeur de la barre de défilement */
+}
+
+.history_container::-webkit-scrollbar-track {
+ background-color: black;
+ /* Couleur de l'arrière-plan de la barre de défilement */
+}
+
+.history_container::-webkit-scrollbar-thumb {
+ background-color: #00ff00;
+ /* Couleur de la poignée de la barre de défilement */
+}
+
+/* Personnalisation de la barre de défilement horizontale (si nécessaire) */
+.history_container::-webkit-scrollbar-horizontal {
+ height: 12px;
+ /* Hauteur de la barre de défilement horizontale */
+}
+
+.history_title {
+ position: fixed;
+ background-color: black;
+ width: 246px;
+ text-align: center;
+}
+
+.history_content {
+ display: flex;
+ flex-direction: column-reverse;
+ align-items: center;
+ gap: 10px;
+ padding-top: 15%;
+}
+
+.historyArray {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ width: 100%;
+ gap: 30px; 
+}
+
+.index {
+ color: #ffffff;
+ background-color: ;
+ font-size: 10px;
+ border: solid 1px #66ff66;
+ border-radius: 50%;
+ width: 25px;
+ height: 25px;
+ text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
