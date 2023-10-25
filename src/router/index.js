@@ -7,6 +7,7 @@ import morpio from "../components/morpio.vue"
 import slotio from "../components/slotio.vue"
 import simon from "../components/simon.vue"
 import connectIO from "../components/connectIO.vue"
+import mastermind from "../components/mastermind.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,8 +51,12 @@ const router = createRouter({
       path: '/ConnectIO',
       name: 'ConnectIO',
       component: connectIO
+    },
+    {
+      path: '/MasterMind',
+      name: 'MasterMind',
+      component: mastermind
     }
-
   ]
 })
 

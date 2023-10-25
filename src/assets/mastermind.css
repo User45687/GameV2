@@ -1,0 +1,185 @@
+.m_game_container {
+ display: grid;
+ grid-template-columns: 1fr 2fr 1fr;
+ gap: 10px;
+ width: 95vw;
+ height: fit-content;
+ justify-content: center;
+ margin-top: 1%;
+}
+
+.m_history_container {
+ display: flex;
+ flex-direction: column;
+}
+
+.m_win_content {
+ border: solid 2px forestgreen;
+ display: flex;
+ flex-direction: row;
+ gap: 4px;
+ padding: 1%;
+ justify-content: center;
+ align-items: center;
+ height: fit-content;
+}
+
+.m_win_input {
+ border: solid 1px white;
+ width: 4vw;
+ height: 4vw;
+ border-radius: 50%;
+}
+
+.m_selected_and_choice {
+ display: flex;
+ grid-column: 2;
+ grid-row: 1;
+ flex-direction: column;
+ gap: 10px;
+}
+
+.m_selected_color_container {
+ border: solid 2px forestgreen;
+ display: flex;
+ flex-direction: row;
+ gap: 4px;
+ padding: 1%;
+ justify-content: center;
+ height: fit-content;
+ background-color: transparent;
+ height: 7vw;
+}
+
+.m_selected_color {
+ border: 1px solid white;
+ width: 6vw; 
+ height: 6vw;
+ cursor: pointer;
+ border-radius: 50%;
+ pointer-events: none;
+}
+
+.m_choice_container {
+ border: solid 2px forestgreen;
+ display: flex;
+ flex-direction: row;
+ gap: 4px;
+ padding: 1% 30% 1% 30%;
+ justify-content: center;
+ flex-wrap: nowrap;
+ height: fit-content;
+}
+
+.m_choice_input {
+ border: 1px solid white;
+ width: 6vw; 
+ height: 6vw;
+ cursor: pointer;
+ border-radius: 50%;
+}
+
+.m_choice_input:hover {
+ opacity: 0.7;
+}
+
+.m_history_container {
+ border: solid 2px forestgreen;
+ display: flex;
+ flex-direction: column;
+ gap: 4px;
+ padding: 2%;
+ justify-content: center;
+ align-items: center;
+ grid-column: 3;
+ grid-row: 1;
+ height: fit-content;
+ max-height: 83vh;
+}
+
+.m_history_content {
+ display: flex;
+ flex-direction: column;
+ gap: 4px;
+ justify-content: center;
+}
+
+.m_history_body {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ gap: 4px;
+}
+
+.m_history_input {
+ border: 1px solid white;
+ width: 4vw; 
+ height: 4vw;
+ cursor: pointer;
+ border-radius: 50%;
+ pointer-events: none;
+ margin: 2% 0 0 0;
+}
+
+.m_history_clue_container {
+ justify-content: space-around;
+}
+.m_history_input_clue {
+ border: 1px solid white;
+ width: 2vw; 
+ height: 2vw;
+ cursor: pointer;
+ border-radius: 50%;
+ pointer-events: none;
+}
+
+.m_h3 {
+ font-size: 2vw;
+ background-color: forestgreen;
+ width: 100%;
+ color: white;
+ padding: 1%;
+ text-align: center;
+}
+
+
+.m_red {
+ background-color: red;
+}
+
+.m_blue {
+ background-color: blue;
+}
+
+.m_forestgreen {
+ background-color: forestgreen;
+}
+
+.m_brown {
+ background-color: saddlebrown;
+}
+
+.m_pink {
+ background-color: pink;
+}
+
+.m_yellow {
+ background-color: yellow;
+}
+
+.m_empty {
+ background-color: black;
+ border: solid 1px white;
+}
+
+.m_clue_W {
+ background-color: chartreuse;
+}
+
+.m_clue_M {
+ background-color: coral;
+}
+
+.m_clue_L {
+ background-color: black;
+}
