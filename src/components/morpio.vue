@@ -13,7 +13,7 @@
   <div class="modal_c" v-if="isGameMode">
     <div class="bg_m"></div>
     <div class="choice_container">
-      <button class="btn_mode" @click="IA">1 Player</button>
+      <button class="btn_mode" @click="ChangeMode">1 Player</button>
       <button class="btn_mode" @click="ChangeMode">2 Players</button>
     </div>
   </div>

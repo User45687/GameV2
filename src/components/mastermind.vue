@@ -2,6 +2,7 @@
 @import url(../assets/mastermind.css);
 </style>
 
+
 <template>
   <div class="m_game_container">
 
@@ -17,12 +18,15 @@
           'm_yellow': color === 'yellow',
         }">
       </div>
+      <div class="m_difficult_container">
+        <div class="m_difficult_show">{{ selectedDifficulty - turn }} TRY LEFT</div>
+      </div>
     </div>
 
 
     <div class="m_selected_and_choice">
-      <div class="m_h3">MASTERMIND</div>
-      <div class="m_choice_container">
+      <div class="m_h3">MASTERMIND<span class="m_explanation_btn" @click="ModalExplaination">HOW TO PLAY</span></div>
+      <div class="m_choice_container" v-if="!isGameOver">
         <input class="m_choice_input" readonly v-for="color in currentColor" @click="SelectColor(color)" :class="{
           'm_red': color === 'red',
           'm_blue': color === 'blue',
@@ -33,7 +37,7 @@
         }">
       </div>
 
-      <div class="m_selected_color_container">
+      <div class="m_selected_color_container" v-if="!isGameOver">
         <input class="m_selected_color" readonly v-for="colorSelected in selectedColor" :class="{
           'm_red': colorSelected === 'red',
           'm_blue': colorSelected === 'blue',
@@ -44,6 +48,18 @@
           'm_empty': colorSelected === '',
         }">
       </div>
+
+      <div class="m_gameover_container" v-if="isGameOver">
+        <div class="m_gameover_content">
+          <div class="m_gameover_title">GAME OVER</div>
+          <div class="m_gameover_container_btn">
+            <button class="m_gameover_btn">RETRY</button>
+            <button class="m_gameover_btn">CHANGE DIFFICULTY</button>
+          </div>
+        </div>
+      </div>
+
+
 
 
     </div>
@@ -74,6 +90,107 @@
       </div>
     </div>
   </div>
+
+  <div class="m_modal_explanation" v-if="isExplainAsk">
+
+    <div class="m_modal_explanation_content" v-if="isLanguage === 'FRA'">
+      MasterIO est un jeu où votre objectif est de trouver la combinaison secrète en un nombre limité d'essais.
+      Cette combinaison est constituée de 4 couleurs choisies parmi le
+      <span class="m_red">rouge</span>,
+      <span class="m_blue">bleu</span>,
+      <span class="m_purple">violet</span>,
+      <span class="m_brown">marron</span>,
+      <span class="m_pink">rose</span> et
+      <span class="m_yellow">jaune</span>.
+
+      Chaque tentative est affichée dans la section historique, et sous chaque couleur proposée,
+      se trouve un indicateur qui peut être de l'une des trois couleurs suivantes : <ul>
+        <li>
+          Noir = La couleur n'est pas dans la combinaison secrète.
+        </li>
+        <li>
+          <span class="m_clue_M">Orange</span> = La couleur est dans la combinaison secrète, mais pas a cet emplacement.
+        </li>
+        <li>
+          <span class="m_clue_W">Vert</span> = La couleur est au bon emplacement.
+        </li>
+      </ul>
+      <div class="m_modal_explanation_btn_container">
+        <button class="m_modal_btn" @click="ModalExplaination">TERMINER</button>
+        <button class="m_modal_btn" @click="changeLanguage">FRA</button>
+      </div>
+    </div>
+
+    <div class="m_modal_explanation_content" v-if="isLanguage === 'ENG'">
+      MasterIO is a game where your goal is to find the secret combination within a limited number of attempts.
+      This combination consists of 4 colors chosen from
+      <span class="m_red">red</span>,
+      <span class="m_blue">blue</span>,
+      <span class="m_purple">purple</span>,
+      <span class="m_brown">brown</span>,
+      <span class="m_pink">pink</span>, and
+      <span class="m_yellow">yellow</span>.
+
+      Each attempt is displayed in the historical section, and under each proposed color,
+      there is an indicator that can be one of three colors: <ul>
+        <li>
+          Black = The color is not in the secret combination.
+        </li>
+        <li>
+          <span class="m_clue_M">Orange</span> = The color is in the secret combination, but not in this position.
+        </li>
+        <li>
+          <span class="m_clue_W">Green</span> = The color is in the right position.
+        </li>
+      </ul>
+      <div class="m_modal_explanation_btn_container">
+        <button class="m_modal_btn" @click="ModalExplaination">FINISH</button>
+        <button class="m_modal_btn" @click="changeLanguage">ENG</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="m_modal_start" v-if="isGameStart">
+    <div class="m_modal_background"></div>
+    <div class="m_modal_start_content">
+      <div class="m_modal_start_btn_container" v-if="!isPlayerChoose">
+        <button class="m_modal_start_btn" @click="PlayerChoose">1 Player</button>
+        <button class="m_modal_start_btn" @click="PlayerChoose">2 Player</button>
+      </div>
+
+      <div class="m_modal_start_difficult_container" v-if="isPlayerChoose">
+        CHOOSE YOUR DIFFICULT:
+
+        <div class="m_div_flexrow">
+          <input class="m_modal_start_difficult" type="radio" name="difficult" value="Infinity"
+            v-model="selectedDifficulty">Infinity
+        </div>
+
+        <div class="m_div_flexrow">
+          <input class="m_modal_start_difficult" type="radio" name="difficult" value="12" checked
+            v-model="selectedDifficulty">Beginner (12 TRY)
+        </div>
+
+        <div class="m_div_flexrow">
+          <input class="m_modal_start_difficult" type="radio" name="difficult" value="8"
+            v-model="selectedDifficulty">Medium (8 TRY)
+        </div>
+
+        <div class="m_div_flexrow">
+          <input class="m_modal_start_difficult" type="radio" name="difficult" value="5" v-model="selectedDifficulty">Hard
+          (5 TRY)
+        </div>
+
+        <div class="m_div_flexrow">
+          <input class="m_modal_start_difficult" type="radio" name="difficult" value="3" v-model="selectedDifficulty">
+          Impossible (3 TRY)
+        </div>
+        <button class="m_modal_start_btn" @click="GameStart">DONE</button>
+      </div>
+
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -96,6 +213,14 @@ const selectedColor = ref([])
 const count = ref(0)
 const Arrayhistory = ref([])
 const m_history_container = ref(null)
+const isExplainAsk = ref(false)
+const isLanguage = ref('ENG')
+const isGameStart = ref(true)
+const isPlayerChoose = ref(false)
+const selectedDifficulty = ref(12)
+const turn = ref(0)
+const isGameOver = ref(false)
+const isGameWin = ref(false)
 
 function SelectColor(color) {
   selectedColor.value.push(color)
@@ -109,11 +234,11 @@ function SelectColor(color) {
 
 function CheckWin() {
   console.log('check');
+  turn.value++
   if (JSON.stringify(selectedColor.value) === JSON.stringify(Arraywin)) {
     console.log('Win');
   } else {
     console.log('loose');
-
     const clues = [];
 
     for (let i = 0; i < 4; i++) {
@@ -125,13 +250,38 @@ function CheckWin() {
         clues.push({ color: selectedColor.value[i], clue: 'L' })
       }
     }
-    console.log(Arraywin[0])
-    console.log(selectedColor.value[0])
-    console.log(clues)
     Arrayhistory.value.push([...clues]);
     selectedColor.value = [];
-    console.log(Arrayhistory.value);
   }
+  m_history_container.value.scrollTop = m_history_container.value.scrollHeight;
+  console.log(turn.value)
+  console.log(selectedDifficulty.value)
+
+  if (turn.value === parseInt(selectedDifficulty.value, 10)) {
+    console.log('nooob')
+    GameOver()
+  }
+
 }
 
+
+function ModalExplaination() {
+  isExplainAsk.value = !isExplainAsk.value;
+}
+
+function changeLanguage() {
+  const lang = isLanguage.value
+  isLanguage.value = lang === 'ENG' ? 'FRA' : 'ENG';
+}
+
+function GameStart() {
+  isGameStart.value = !isGameStart.value
+}
+function PlayerChoose() {
+  isPlayerChoose.value = !isPlayerChoose.value
+}
+
+function GameOver() {
+  isGameOver.value = true;
+}
 </script>
