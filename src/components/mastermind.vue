@@ -8,7 +8,7 @@
 
     <div class="m_win_container">
       <div class="m_h3">RESULT</div>
-      <div class="m_win_content">
+      <div class="m_win_content" v-if="isShowResult">
         <input class="m_win_input" readonly v-for="color in Arraywin" :class="{
           'm_red': color === 'red',
           'm_blue': color === 'blue',
@@ -49,12 +49,22 @@
         }">
       </div>
 
-      <div class="m_gameover_container" v-if="isGameOver">
-        <div class="m_gameover_content">
-          <div class="m_gameover_title">GAME OVER</div>
-          <div class="m_gameover_container_btn">
-            <button class="m_gameover_btn">RETRY</button>
-            <button class="m_gameover_btn">CHANGE DIFFICULTY</button>
+      <div class="m_gameover_container_L" v-if="isGameOver === 'LOOSE'">
+        <div class="m_gameover_content_L">
+          <div class="m_gameover_title_L">GAME OVER</div>
+          <div class="m_gameover_container_btn_L">
+            <button class="m_gameover_btn_L" @click="Retry()">RETRY</button>
+            <button class="m_gameover_btn_L" @click="GameStart()">CHANGE DIFFICULTY</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="m_gameover_container_W" v-if="isGameOver === 'WIN'">
+        <div class="m_gameover_content_W">
+          <div class="m_gameover_title_W">GAME SUCESS</div>
+          <div class="m_gameover_container_btn_W">
+            <button class="m_gameover_btn_W" @click="Retry()">RETRY</button>
+            <button class="m_gameover_btn_W" @click="GameStart()">CHANGE DIFFICULTY</button>
           </div>
         </div>
       </div>
@@ -205,8 +215,8 @@ function randowArray() {
   }
   return randowArray;
 }
-const Arraywin = randowArray()
-console.log(Arraywin)
+const Arraywin = ref(randowArray())
+console.log(Arraywin.value)
 
 
 const selectedColor = ref([])
@@ -217,10 +227,10 @@ const isExplainAsk = ref(false)
 const isLanguage = ref('ENG')
 const isGameStart = ref(true)
 const isPlayerChoose = ref(false)
-const selectedDifficulty = ref(12)
+const selectedDifficulty = ref(0)
 const turn = ref(0)
 const isGameOver = ref(false)
-const isGameWin = ref(false)
+const isShowResult = ref(false)
 
 function SelectColor(color) {
   selectedColor.value.push(color)
@@ -235,16 +245,18 @@ function SelectColor(color) {
 function CheckWin() {
   console.log('check');
   turn.value++
-  if (JSON.stringify(selectedColor.value) === JSON.stringify(Arraywin)) {
+  if (JSON.stringify(selectedColor.value) === JSON.stringify(Arraywin.value)) {
     console.log('Win');
+    isGameOver.value = 'WIN'
+    isShowResult.value = true
   } else {
     console.log('loose');
     const clues = [];
 
     for (let i = 0; i < 4; i++) {
-      if (Arraywin[i] === selectedColor.value[i]) {
+      if (Arraywin.value[i] === selectedColor.value[i]) {
         clues.push({ color: selectedColor.value[i], clue: 'W' });
-      } else if (Arraywin.includes(selectedColor.value[i])) {
+      } else if (Arraywin.value.includes(selectedColor.value[i])) {
         clues.push({ color: selectedColor.value[i], clue: 'M' });
       } else {
         clues.push({ color: selectedColor.value[i], clue: 'L' })
@@ -252,15 +264,16 @@ function CheckWin() {
     }
     Arrayhistory.value.push([...clues]);
     selectedColor.value = [];
+    if (turn.value === parseInt(selectedDifficulty.value, 10)) {
+      console.log('nooob')
+      isGameOver.value = 'LOOSE'
+      isShowResult.value = true
+    }
   }
   m_history_container.value.scrollTop = m_history_container.value.scrollHeight;
   console.log(turn.value)
   console.log(selectedDifficulty.value)
 
-  if (turn.value === parseInt(selectedDifficulty.value, 10)) {
-    console.log('nooob')
-    GameOver()
-  }
 
 }
 
@@ -276,12 +289,19 @@ function changeLanguage() {
 
 function GameStart() {
   isGameStart.value = !isGameStart.value
+  turn.value = 0
 }
 function PlayerChoose() {
   isPlayerChoose.value = !isPlayerChoose.value
 }
 
-function GameOver() {
-  isGameOver.value = true;
+
+function Retry() {
+  isShowResult.value = false
+  Arraywin.value = randowArray()
+  Arrayhistory.value = []
+  selectedColor.value = []
+  isGameOver.value = false
+  turn.value = 0
 }
 </script>

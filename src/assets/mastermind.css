@@ -240,14 +240,14 @@
  align-items: flex-start;
 }
 
-.m_gameover_container {
+.m_gameover_container_L {
  background-color: black;
  display: flex;
  border: red solid 3px;
  padding: 1%;
 }
 
-.m_gameover_content {
+.m_gameover_content_L {
  width: 100%;
  height: 100%;
  font-size: 5vw;
@@ -258,26 +258,68 @@
  gap: 3%;
 }
 
-.m_gameover_container_btn {
+.m_gameover_container_btn_L {
  display: flex;
  flex-direction: row;
  width: 100%;
 }
 
-.m_gameover_title {
+.m_gameover_title_L {
  color: red;
  font-size: 4vw;
 }
 
-.m_gameover_btn {
+.m_gameover_btn_L {
  width: 100%;
  font-size: 1vw;
  border: solid 1px red;
  color: red;
 }
 
-.m_gameover_btn:hover {
+.m_gameover_btn_L:hover {
  background-color: red;
+ color: white;
+ border: solid 1px white;
+}
+
+.m_gameover_container_W {
+ background-color: black;
+ display: flex;
+ border: lightskyblue solid 3px;
+ padding: 1%;
+}
+
+.m_gameover_content_W {
+ width: 100%;
+ height: 100%;
+ font-size: 5vw;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ gap: 3%;
+}
+
+.m_gameover_container_btn_W {
+ display: flex;
+ flex-direction: row;
+ width: 100%;
+}
+
+.m_gameover_title_W {
+ color: lightskyblue;
+ font-size: 4vw;
+}
+
+.m_gameover_btn_W {
+ width: 100%;
+ font-size: 1vw;
+ border: solid 1px lightskyblue;
+ color: lightskyblue;
+}
+
+.m_gameover_btn_W:hover {
+ background-color: lightskyblue;
  color: white;
  border: solid 1px white;
 }
