@@ -9,6 +9,7 @@ const cards = [
   { name: "Simon", backgroundImg: "../src/icons/screen_simon.png", link: "Simon" },
   { name: "GuessNumb", backgroundImg: "../src/icons/screen_GN.png", link: "GuessNumb" },
   { name: "Connectio", backgroundImg: "../src/icons/screen_connectio.png", link: "ConnectIO" },
+  { name: "Battleship", backgroundImg: "../src/icons/screen_connectio.png", link: "battleship" },
 
 ];
 

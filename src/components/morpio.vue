@@ -59,7 +59,6 @@
 </template>
 
 <script setup>
-import { V_MODEL_CHECKBOX } from '@vue/compiler-dom';
 import { ref } from 'vue';
 
 const isExplainAsk = ref(false)
