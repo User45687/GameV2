@@ -1,0 +1,193 @@
+.h_game_container {}
+
+.h_game_content {
+ display: grid;
+ grid-template-columns: 2fr 2fr;
+}
+
+.h_title_container {
+ grid-column: span 2;
+ grid-row: 1;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: solid 1vw pink;
+ border-top: none;
+}
+
+.h_title {
+ font-size: 5vw;
+ border: none;
+}
+
+.h_word_container {
+ grid-column: 2;
+ grid-row: 2;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ margin: 1%;
+}
+
+.h_word_content {
+ display: flex;
+ flex-direction: row;
+ border: solid 0.5vw pink;
+ align-items: center;
+ justify-content: center;
+ gap: 4px;
+ margin-bottom: 1vw;
+ padding: 1vw;
+}
+
+.h_word {
+ background-color: transparent;
+ width: 4vw;
+ height: 4vw;
+ border: none;
+ border-bottom: 3px solid white;
+
+}
+
+.h_letter {
+ width: 4vw;
+ height: 4vw;
+ text-align: center;
+ font-size: 2vw;
+ display: none;
+ border: none;
+ border-bottom: 3px solid white;
+ background-color: rgb(3, 3, 3);
+ color: white;
+}
+
+.h_letter_active {
+ display: block;
+
+}
+
+.h_keyboard_container {
+ grid-column: 2;
+ grid-row: 4;
+ border: 0.2vw white solid;
+ border-radius: 10px;
+}
+
+.h_keyboard_content {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ align-items: center;
+ justify-content: center;
+ gap: 4px;
+ margin: 1%;
+}
+
+.h_keyboard_row {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ gap: 4px;
+}
+
+.h_keyboard {}
+
+.h_keyboard_keys {
+ background-color: black;
+ color: white;
+ border: 0.2vw white solid;
+ border-radius: 50%;
+ width: 5vw;
+ height: 5vw;
+ font-size: 2vw;
+ text-align: center;
+ cursor: pointer;
+}
+
+.h_keyboard_keys:hover {
+ transform: scale(0.9);
+}
+
+.h_keyboard_keys:focus {
+ outline: none;
+}
+
+.h_keyboard_keys_selected {
+ animation: selectedKeys 1s ease forwards;
+}
+
+@keyframes selectedKeys {
+ 0% {
+  transform: scale(1);
+ }
+
+ 33% {
+  transform: scale(1.2);
+ }
+
+ 66% {
+  transform: scale(0);
+ }
+
+ 100% {
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+
+ }
+}
+
+.h_hangman_container {
+ grid-column: 1;
+ grid-row: span 3;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.h_hangman_content {
+ width: fit-content;
+ height: fit-content;
+}
+
+.h_hangman_img {
+ width: 30vw;
+ height: 30vw;
+}
+
+.h_gameover_container {
+ grid-column: 2;
+ grid-row: 3;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 1vw;
+}
+
+.h_gameover_content {
+ font-size: 4vw;
+ padding: 1%;
+}
+
+.h_gameover_w {
+ color: green;
+ border: solid 0.5vw green;
+}
+
+.h_gameover_l {
+ color: red;
+ border: solid 0.5vw red;
+}
+
+.h_retry_btn {
+ border: solid 0.3vw white;
+ background-color: white;
+}
+
+.h_retry_btn:hover {
+ background-color: black;
+ color: white;
+}

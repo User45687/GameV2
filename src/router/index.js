@@ -8,7 +8,6 @@ import slotio from "../components/slotio.vue"
 import simon from "../components/simon.vue"
 import connectIO from "../components/connectIO.vue"
 import mastermind from "../components/mastermind.vue"
-import battleship from "../components/battleship.vue"
 import hangman from "../components/hangman.vue"
 
 const router = createRouter({
@@ -58,11 +57,6 @@ const router = createRouter({
       path: '/MasterMind',
       name: 'MasterMind',
       component: mastermind
-    },
-    {
-      path: '/Battleship',
-      name: 'Battleship',
-      component: battleship
     },
     {
       path: '/Hangman',
