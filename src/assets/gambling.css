@@ -1,21 +1,42 @@
-.main_container {
+.g_game_container {
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: 1fr 1fr;
+}
+
+.g_roul_container {
+ grid-column: 1;
+ grid-row: 1;
  display: flex;
- flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ border: solid 0.3vw white;
 }
 
-
-
-.mise_btn {
- width: 55px;
- height: 55px;
-}
-.mise_btn_select {
- background-color:#ffff00;
-}
-.mise_btn_win {
- background-color:#00ff00;
+.g_roul_content {
+ border-radius: 50%;
+ width: 30vw;
+ height: 30vw;
+ background-image: url(../icons/roulette.png);
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: contain;
 }
 
-.mise_btn_loose {
- background-color:#ff0000;
+.g_roul_content_roll {
+ animation: roll 4s ease-out;
+}
+
+.g_roul_btn_disabled {
+ pointer-events: none;
+ opacity: 0.5;
+}
+
+.g_roul_result {
+ transition: all 1s linear;
+}
+
+@keyframes roll {
+ 10%{transform: rotate(-30deg)}
+ 100%{transform: rotate(7turn);}
 }
