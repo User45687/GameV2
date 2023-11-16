@@ -1,6 +1,6 @@
 .y_game_container {
  display: grid;
- grid-template-columns: 1fr 1fr;
+ grid-template-columns: 1fr;
 
 }
 .y_dice_container {
@@ -26,31 +26,59 @@
  background-position: center;
  background-repeat: no-repeat;
  background-size: contain;
+ cursor: pointer;
 }
 
-.y_history_container {
- grid-column: 2;
+.y_isDisableDice {
+ transform: scale(0.8);
 }
 
-.y_history_content {
+.y_btn_roll {
+ background-color: white;
+ border: solid 0.2vw black ;
+ border-radius: 10px;
+}
+
+.y_btn_roll:hover {
+ background-color: black;
+ color: white;
+}
+
+.y_btn_roll_disabled {
+ opacity: 0.7;
+ pointer-events: none;
+}
+
+.y_table_container {
+ grid-column: 1;
+ grid-row: 2;
  background-color: green;
  padding: 1%;
 }
 
-.y_history {
- border: solid 0.2vw black;
- border-radius: 5px;
+.y_table_content {
  display: flex;
- padding: 1%;
+ flex-direction: row;
+ flex-wrap: wrap;
+ align-items: center;
  justify-content: center;
 }
 
-.y_history_title {
+.y_table {
  border: solid 0.2vw black;
  border-radius: 5px;
- padding: 1%;
- color: black;
- outline: solid white;
- width: 100%;
+ display: flex;
+ flex-direction: column;
+ margin: 0.1%;
+}
+
+.y_table_cat {
+ font-size: 1vw;
+ text-align: center;
+ width: 16vw;
+}
+
+.y_table_input {
+ width: 16vw;
  text-align: center;
 }
